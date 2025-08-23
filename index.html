@@ -22,7 +22,10 @@
     @media(min-width:720px){.card{grid-column:span 6}}
     h2{font-size:20px; margin:12px 0 6px}
     .meta{color:var(--muted); font-size:14px; margin-bottom:12px}
-    img.preview{width:100%; border-radius:12px; margin-bottom:12px; border:1px solid #2c3444}
+    img.preview{border-radius:8px; border:1px solid #2c3444; cursor:pointer; transition:transform 0.2s}
+    img.preview:hover{transform:scale(1.05)}
+    .thumbs{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px}
+    .thumbs img{width:100px}
     footer{margin-top:36px; color:var(--muted); font-size:14px}
     .divider{height:1px; background:linear-gradient(90deg,transparent, #2b313c 50%, transparent); margin:26px 0}
   </style>
@@ -41,11 +44,12 @@
 
         <!-- Project 1 -->
         <article class="card">
-          <a href="VRG_Netwerkkaart.pdf" target="_blank">
-            <img src="vrg_preview.png" alt="Preview Netwerkkaart" class="preview">
-          </a>
           <h2>Grensoverschrijdende Operationele Netwerkkaart – Rampenbestrijding & Crisisbeheersing</h2>
           <p class="meta">Veiligheidsregio Groningen & Nedersaksen · tweetalig (NL/DE)</p>
+          <div class="thumbs">
+            <a href="VRG_Netwerkkaart.pdf" target="_blank"><img src="vrg_page1.png" alt="Preview pagina 1" class="preview"></a>
+            <a href="VRG_Netwerkkaart.pdf" target="_blank"><img src="vrg_page2.png" alt="Preview pagina 2" class="preview"></a>
+          </div>
           <p>
             Visualisatie en structuur van crisisrollen en opschaling (GRIP/ROT/GBT/RBT) aan beide kanten van de grens. 
             Doel: snel overzicht bieden aan betrokkenen (brandweer, politie, GHOR, gemeenten) tijdens incidenten en rampen.
@@ -54,27 +58,28 @@
 
         <!-- Project 2 -->
         <article class="card">
-          <a href="G7_vs_China.pdf" target="_blank">
-            <img src="g7_preview.png" alt="Preview G7 vs China CDA" class="preview">
-          </a>
           <h2>G7 vs. China – discoursanalyse Oekraïne</h2>
           <p class="meta">Universiteit Groningen · 2023</p>
+          <div class="thumbs">
+            <a href="G7_vs_China.pdf" target="_blank"><img src="g7_page1.png" alt="Preview pagina 1" class="preview"></a>
+          </div>
           <p>
-            Kritische discoursanalyse van officiële statements van China en G7‑leiders kort na escalatie van de oorlog in 2022. 
-            Focus op <em>agency</em>, ideologie en stance‑taking; methodisch gebaseerd op het Three Step Model (Darics &amp; Koller, 2019).
+            Kritische discoursanalyse van officiële statements van China en G7-leiders kort na escalatie van de oorlog in 2022. 
+            Focus op <em>agency</em>, ideologie en stance-taking; methodisch gebaseerd op het Three Step Model (Darics &amp; Koller, 2019).
           </p>
         </article>
 
-        <!-- Project 3 (placeholder) -->
+        <!-- Project 3 -->
         <article class="card">
-          <a href="Project3.pdf" target="_blank">
-            <img src="project3_preview.png" alt="Preview Project 3" class="preview">
-          </a>
-          <h2>Project 3 – volgt</h2>
-          <p class="meta">Beschrijving wordt aangevuld</p>
+          <h2>Digital Clean-up Campaign – University of Groningen</h2>
+          <p class="meta">Green Office · 3 posters</p>
+          <div class="thumbs">
+            <a href="PosterLivingLab.pdf" target="_blank"><img src="PosterLivingLab-1.png" alt="Poster 1" class="preview"></a>
+            <a href="PosterLivingLab.pdf" target="_blank"><img src="PosterLivingLab-2.png" alt="Poster 2" class="preview"></a>
+            <a href="PosterLivingLab.pdf" target="_blank"><img src="PosterLivingLab-3.png" alt="Poster 3" class="preview"></a>
+          </div>
           <p>
-            Dit project is nog niet zichtbaar omdat het bronbestand niet kon worden gelezen. 
-            Zodra de korte omschrijving (titel, jouw rol, 3 bullets met resultaat) beschikbaar is, wordt dit blok bijgewerkt.
+            Campagneposters die bewustzijn creëren over de ecologische voetafdruk van digitale opslag. Ontworpen voor studenten en medewerkers om digitale data schoner te beheren en verspilling tegen te gaan.
           </p>
         </article>
 
@@ -86,7 +91,7 @@
     <section aria-labelledby="about">
       <h2 id="about" style="font-size:18px; color:#cbd5e1; margin:0 0 10px">Over</h2>
       <p>
-        Startend communicatieprofessional met een achtergrond in Communicatie‑ en Informatiewetenschappen en Filosofie. 
+        Startend communicatieprofessional met een achtergrond in Communicatie- en Informatiewetenschappen en Filosofie. 
         Ik werk het liefst aan projecten waar taal, structuur en vorm samenkomen om iets ingewikkelds eenvoudig te maken.
       </p>
     </section>
