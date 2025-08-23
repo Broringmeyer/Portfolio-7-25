@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Christian Bröringmeyer</title>
+  <style>
+    :root{
+      --bg:#0b0c10; --card:#121317; --muted:#9aa0a6; --text:#e8eaed; --accent:#7dd3fc; --pill:#1f2937;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; background:linear-gradient(180deg,#0b0c10 0%, #0f1115 100%); color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:960px; margin:0 auto; padding:40px 20px}
+    header{display:flex; flex-wrap:wrap; align-items:end; gap:12px; margin-bottom:28px;}
+    h1{font-size:clamp(26px,4vw,40px); margin:0; letter-spacing:0.3px}
+    .tagline{color:var(--muted)}
+    .pill{display:inline-flex; align-items:center; gap:8px; background:var(--pill); border:1px solid #293241; color:#c7d2fe; padding:6px 10px; border-radius:999px; font-size:13px}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
+    .card{grid-column:span 12; background:var(--card); border:1px solid #23262d; border-radius:18px; padding:20px; box-shadow:0 10px 24px rgba(0,0,0,.25)}
+    @media(min-width:720px){.card{grid-column:span 6}}
+    h2{font-size:20px; margin:0 0 6px}
+    .meta{color:var(--muted); font-size:14px; margin-bottom:12px}
+    .skills{display:flex; flex-wrap:wrap; gap:8px; margin:10px 0 0}
+    .skills span{background:#0e1726; border:1px solid #243045; color:#cbd5e1; padding:4px 10px; border-radius:999px; font-size:12px}
+    .actions{display:flex; gap:10px; margin-top:14px}
+    .btn{display:inline-block; padding:9px 12px; border-radius:12px; border:1px solid #2c3444; background:#10131a; color:#e6edf3; font-weight:600}
+    .btn:hover{transform:translateY(-1px)}
+    footer{margin-top:36px; color:var(--muted); font-size:14px}
+    .divider{height:1px; background:linear-gradient(90deg,transparent, #2b313c 50%, transparent); margin:26px 0}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Christian Bröringmeyer</h1>
+      <span class="pill" title="Drietalig & onderzoekend">Communicatie · onderzoek · visualisatie</span>
+      <p class="tagline">Startend communicatieprofessional. Ik vertaal complexe inhoud naar heldere verhalen en visuals.</p>
+    </header>
+
+    <section aria-labelledby="work">
+      <h2 id="work" style="font-size:18px; color:#cbd5e1; margin:0 0 10px">Geselecteerde projecten (3)</h2>
+      <div class="grid">
+
+        <!-- Project 1 -->
+        <article class="card" aria-labelledby="p1-title">
+          <h2 id="p1-title">Grensoverschrijdende Operationele Netwerkkaart – Rampenbestrijding & Crisisbeheersing</h2>
+          <p class="meta">Veiligheidsregio Groningen & Nedersaksen · tweetalig (NL/DE)</p>
+          <p>
+            Visualisatie en structuur van crisisrollen en opschaling (GRIP/ROT/GBT/RBT) aan beide kanten van de grens. 
+            Doel: snel overzicht bieden aan betrokkenen (brandweer, politie, GHOR, gemeenten) tijdens incidenten en rampen.
+          </p>
+          <ul>
+            <li>Rol: <strong>informatie‑architectuur & visual design</strong></li>
+            <li>Bijdrage: ordening van teams/rollen, compacte beschrijvingen, tweetalige terminologie</li>
+            <li>Resultaat: één kaart die besluitvorming en samenwerking versimpelt</li>
+          </ul>
+          <div class="skills">
+            <span>crisiscommunicatie</span><span>informatieontwerp</span><span>NL/DE</span><span>publieke sector</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#" title="PDF op aanvraag">Bekijk voorbeeld (PDF)</a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="card" aria-labelledby="p2-title">
+          <h2 id="p2-title">G7 vs. China – discoursanalyse over Oekraïne (CDA met TSM)</h2>
+          <p class="meta">Universiteit Groningen · 2023</p>
+          <p>
+            Kritische discoursanalyse van officiële statements van China en G7‑leiders kort na escalatie van de oorlog in 2022. 
+            Focus op <em>agency</em>, ideologie en stance‑taking; methodisch gebaseerd op het Three Step Model (Darics &amp; Koller, 2019).
+          </p>
+          <ul>
+            <li>Rol: <strong>onderzoek & tekst</strong></li>
+            <li>Bijdrage: datasetselectie, codering (actieve/passieve actor‑rollen), samenvatting en visualisatie</li>
+            <li>Resultaat: duidelijke vergelijking van framing en intenties (bijv. “onrechtmatige aanval” vs. “legitieme veiligheidszorgen”)</li>
+          </ul>
+          <div class="skills">
+            <span>analytisch schrijven</span><span>wetenschappelijke methode</span><span>crisisframing</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="#" title="PDF op aanvraag">Bekijk poster (PDF)</a>
+          </div>
+        </article>
+
+        <!-- Project 3 (placeholder) -->
+        <article class="card" aria-labelledby="p3-title">
+          <h2 id="p3-title">Project 3 – volgt</h2>
+          <p class="meta">Beschrijving wordt aangevuld</p>
+          <p>
+            Dit project is nog niet zichtbaar omdat het bronbestand niet kon worden gelezen. 
+            Zodra de korte omschrijving (titel, jouw rol, 3 bullets met resultaat) beschikbaar is, wordt dit blok bijgewerkt.
+          </p>
+          <ul>
+            <li>Rol: …</li>
+            <li>Bijdrage: …</li>
+            <li>Resultaat: …</li>
+          </ul>
+          <div class="skills">
+            <span>n.t.b.</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <div class="divider" role="presentation"></div>
+
+    <section aria-labelledby="about">
+      <h2 id="about" style="font-size:18px; color:#cbd5e1; margin:0 0 10px">Over</h2>
+      <p>
+        Startend communicatieprofessional met een achtergrond in Communicatie‑ en Informatiewetenschappen en Filosofie. 
+        Ik werk het liefst aan projecten waar taal, structuur en vorm samenkomen om iets ingewikkelds eenvoudig te maken.
+      </p>
+      <div class="skills" aria-label="vaardigheden">
+        <span>structuur & redactie</span><span>visualisatie</span><span>meertalig (NL/DE/EN)</span><span>publieke/culturele sector</span>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Christian Bröringmeyer · Beschikbaar voor parttime opdrachten (~24 u/w)
+    </footer>
+  </main>
+  <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+</body>
+</html>
