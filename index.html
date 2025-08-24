@@ -12,7 +12,8 @@
       margin:0; padding:0;
       background:radial-gradient(circle at top center, #101217 0%, #0b0c10 80%);
       color:var(--text);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      font:16px/1.65 "Inter","Source Sans 3",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+      font-weight:400;
     }
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
@@ -67,7 +68,25 @@
       box-shadow:0 0 12px rgba(125,211,252,.45);
     }
 
-    h2{font-size:20px; margin:12px 0 6px}
+    /* Headings */
+    h2 {
+      font-size:22px;
+      letter-spacing:0.5px;
+      text-transform:uppercase;
+      margin:0 0 16px;
+      position:relative;
+      display:inline-block;
+      padding-bottom:4px;
+    }
+    h2::after {
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width:100%; height:2px;
+      background:linear-gradient(90deg,var(--accent),transparent);
+      opacity:0.6;
+    }
+
     .meta{color:var(--muted); font-size:14px; margin-bottom:12px}
     footer{margin-top:36px; color:var(--muted); font-size:14px}
     .divider{
@@ -102,17 +121,7 @@
       transform:translateY(-6px);
       box-shadow:0 14px 32px rgba(0,0,0,.45), 0 0 12px rgba(125,211,252,.25);
     }
-    .card h2 {
-      position:relative;
-      display:inline-block;
-      padding-bottom:2px;
-    }
     .card h2::after {
-      content:"";
-      position:absolute;
-      bottom:0; left:0;
-      width:100%; height:2px;
-      background:linear-gradient(90deg,var(--accent),transparent);
       transform:scaleX(0);
       transform-origin:left;
       transition:transform .4s ease;
@@ -177,7 +186,9 @@
       padding-left:12px;
       border-left:3px solid var(--accent);
       color:var(--accent);
+      text-transform:uppercase;
     }
+    #about h2::after { display:none; }
   </style>
 </head>
 <body>
@@ -256,311 +267,6 @@
       const scrollAmount=el.clientWidth*0.8; // one card width approx.
       el.scrollBy({left:dir*scrollAmount, behavior:"smooth"});
     }
-  </script>
-</body>
-</html>
-👉 This file is ready to use as index.html — just open it in your browser.
-
-Would you like me to also make the arrows fade out (hidden) when you’re at the very left or right edge of the project scroller? That would polish the interaction even more.
-
-
-
-
-
-
-
-You said:
-yes
-
-
-ChatGPT said:
-Perfect 👍 Let’s make the arrows fade out when you can’t scroll further. That way they only appear when needed, which feels smoother and more polished.
-
-I’ll add:
-
-A scroll listener on the project container.
-
-CSS for a fade-out transition.
-
-Logic: hide the left arrow at the start, hide the right arrow at the end.
-
-Here’s the updated .html:
-
-html
-Copy
-Edit
-<!doctype html>
-<html lang="nl">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Portfolio – Christian Bröringmeyer</title>
-  <style>
-    :root{
-      --bg:#0b0c10; --card:#15171d; --muted:#9aa0a6; --text:#e8eaed; --accent:#7dd3fc; --pill:#1f2937;
-    }
-    html,body{
-      margin:0; padding:0;
-      background:radial-gradient(circle at top center, #101217 0%, #0b0c10 80%);
-      color:var(--text);
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
-    }
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    .wrap{max-width:960px; margin:0 auto; padding:40px 20px}
-    header{
-      display:flex; flex-wrap:wrap; align-items:end; gap:12px;
-      margin-bottom:36px; padding-bottom:18px;
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      position:relative;
-    }
-    header::after {
-      content:"";
-      position:absolute;
-      bottom:-2px; left:0; right:0;
-      height:2px;
-      background:linear-gradient(90deg,transparent,var(--accent),transparent);
-      opacity:0.4;
-    }
-    h1{font-size:clamp(26px,4vw,40px); margin:0; letter-spacing:0.3px}
-    .tagline {
-      color: var(--muted);
-      position: relative;
-      display:inline-block;
-      padding-bottom:2px;
-    }
-    .tagline::after {
-      content:"";
-      position:absolute;
-      left:0; bottom:0;
-      width:100%; height:1px;
-      background:linear-gradient(90deg,transparent,var(--accent),transparent);
-      transform: scaleX(0);
-      transform-origin:left;
-      transition:transform .5s ease;
-    }
-    header:hover .tagline::after {
-      transform: scaleX(1);
-    }
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      background:linear-gradient(135deg,#1f2937 0%,#2d3748 100%);
-      border:1px solid rgba(255,255,255,.1);
-      color:#c7d2fe;
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:13px;
-      box-shadow:0 0 8px rgba(125,211,252,.25);
-      transition:box-shadow .3s;
-    }
-    .pill:hover {
-      box-shadow:0 0 12px rgba(125,211,252,.45);
-    }
-
-    h2{font-size:20px; margin:12px 0 6px}
-    .meta{color:var(--muted); font-size:14px; margin-bottom:12px}
-    footer{margin-top:36px; color:var(--muted); font-size:14px}
-    .divider{
-      height:1px; opacity:.6;
-      background:linear-gradient(90deg,transparent,#3b4250 40%,transparent);
-      margin:40px 0;
-    }
-
-    /* Project scroller */
-    .projects-scroll-wrapper { position:relative; }
-    .projects-scroll {
-      display:flex; gap:18px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      padding-bottom:10px;
-      scrollbar-width:none;
-    }
-    .projects-scroll::-webkit-scrollbar{display:none;}
-
-    .card{
-      flex:0 0 80%;
-      background:var(--card);
-      border:1px solid rgba(255,255,255,0.05);
-      border-radius:18px;
-      padding:20px;
-      backdrop-filter:blur(6px);
-      box-shadow:0 8px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
-      scroll-snap-align:start;
-      transition:transform .25s, box-shadow .25s;
-    }
-    .card:hover {
-      transform:translateY(-6px);
-      box-shadow:0 14px 32px rgba(0,0,0,.45), 0 0 12px rgba(125,211,252,.25);
-    }
-    .card h2 {
-      position:relative;
-      display:inline-block;
-      padding-bottom:2px;
-    }
-    .card h2::after {
-      content:"";
-      position:absolute;
-      bottom:0; left:0;
-      width:100%; height:2px;
-      background:linear-gradient(90deg,var(--accent),transparent);
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .4s ease;
-    }
-    .card:hover h2::after {
-      transform:scaleX(1);
-    }
-
-    @media(min-width:1024px) {
-      .card{ flex:0 0 40%; }
-    }
-
-    .thumbs{
-      display:flex; gap:10px;
-      flex-wrap:nowrap;
-      overflow-x:auto;
-      padding-bottom:8px;
-      scrollbar-width:none;
-    }
-    .thumbs::-webkit-scrollbar{display:none;}
-    .thumbs img {
-      width:100px; border-radius:8px;
-      border:1px solid #2c3444;
-      cursor:pointer;
-      transition:transform .2s, box-shadow .2s;
-    }
-    .thumbs img:hover {
-      transform:scale(1.08);
-      box-shadow:0 0 8px rgba(125,211,252,0.5);
-    }
-
-    /* Arrow buttons */
-    .arrow{
-      position:absolute; top:50%; transform:translateY(-50%);
-      background:rgba(20,22,28,0.8);
-      border:1px solid rgba(255,255,255,.1);
-      color:var(--accent);
-      width:38px; height:38px;
-      display:flex; align-items:center; justify-content:center;
-      border-radius:50%;
-      cursor:pointer;
-      transition:background .2s, transform .2s, opacity .3s;
-      z-index:2;
-    }
-    .arrow:hover {
-      background:rgba(40,44,54,0.95);
-      transform:translateY(-50%) scale(1.1);
-    }
-    .arrow.hidden { opacity:0; pointer-events:none; }
-    .arrow.left { left:-14px; }
-    .arrow.right { right:-14px; }
-
-    /* Over section highlight */
-    #about {
-      position:relative;
-      padding:20px;
-      border-radius:16px;
-      background:rgba(255,255,255,0.02);
-      box-shadow:inset 0 0 10px rgba(125,211,252,0.08);
-    }
-    #about h2 {
-      margin-top:0;
-      padding-left:12px;
-      border-left:3px solid var(--accent);
-      color:var(--accent);
-    }
-  </style>
-</head>
-<body>
-  <main class="wrap">
-    <header>
-      <h1>Christian Bröringmeyer</h1>
-      <span class="pill" title="Drietalig & onderzoekend">Communicatie · onderzoek · visualisatie</span>
-      <p class="tagline">Ik breng verhalen en ideeën tot leven via communicatie, met cultuur als inspiratiebron.</p>
-    </header>
-
-    <section aria-labelledby="work">
-      <h2 id="work">Drie voorbeelden van mijn werk</h2>
-      <div class="projects-scroll-wrapper">
-        <button class="arrow left hidden" id="arrow-left" onclick="scrollProjects(-1)">&#8592;</button>
-        <div class="projects-scroll" id="projects">
-
-          <!-- Project 1 -->
-          <article class="card">
-            <h2>Grensoverschrijdende Operationele Netwerkkaart</h2>
-            <p class="meta">Veiligheidsregio Groningen · Communicatie & Crisisbeheersing</p>
-            <div class="thumbs">
-              <a href="VRG_Netwerkkaart.pdf" target="_blank"><img src="vrg_page1.png" alt="Preview pagina 1"></a>
-              <a href="VRG_Netwerkkaart.pdf" target="_blank"><img src="vrg_page2.png" alt="Preview pagina 2"></a>
-            </div>
-            <p>Visualisatie en structurering van crisisrollen en opschalingsprocessen aan beide kanten van de grens, zodat hulpdiensten snel overzicht krijgen tijdens incidenten en rampen.
-              Overzichten ontwikkeld op basis van protocollen en feedback van sleutelfiguren.</p>
-          </article>
-
-          <!-- Project 2 -->
-          <article class="card">
-            <h2>G7 vs. China – discourseanalyse en onderzoek</h2>
-            <p class="meta">Rijksuniversiteit Groningen · Corporate and Organisational Communication in the Real World</p>
-            <div class="thumbs">
-              <a href="G7_vs_China.pdf" target="_blank"><img src="g7_page1.png" alt="Preview pagina 1"></a>
-            </div>
-            <p>Kritische discoursanalyse van officiële statements van China en G7-leiders kort na escalatie van de oorlog in 2022. Focus op agency, ideologie en stance-taking.</p>
-          </article>
-
-          <!-- Project 3 -->
-          <article class="card">
-            <h2>Digital Clean-up Campaign - Student Project</h2>
-            <p class="meta">Rijksuniversiteit Groningen · GreenOffice</p>
-            <div class="thumbs">
-              <a href="PosterLivingLab.pdf" target="_blank"><img src="PosterLivingLab-1.png" alt="Poster 1"></a>
-              <a href="PosterLivingLab.pdf" target="_blank"><img src="PosterLivingLab-2.png" alt="Poster 2"></a>
-              <a href="PosterLivingLab.pdf" target="_blank"><img src="PosterLivingLab-3.png" alt="Poster 3"></a>
-            </div>
-            <p>Experimentele campagneposters die bewustzijn creëren over de ecologische impact van digitale opslag,
-              ontwikkeld om strategieën voor bewustwording te onderzoeken en uiteindelijk in te zetten voor het Green Office van de Rijksuniversiteit Groningen.</p>
-          </article>
-
-        </div>
-        <button class="arrow right" id="arrow-right" onclick="scrollProjects(1)">&#8594;</button>
-      </div>
-    </section>
-
-    <div class="divider" role="presentation"></div>
-
-    <section aria-labelledby="about" id="about">
-      <h2>Over</h2>
-      <p>
-        Ik ben een jonge communicatieprofessional met een master in Communicatie- en Informatiewetenschappen en een bachelor in Filosofie, gespecialiseerd in Kunst en Cultuur. 
-        Ik heb een liefde voor de culturele sector en voor het creatief ontwerpen en vormgeven van communicatiemiddelen. 
-        Ideeën tot leven brengen via communicatie en daarmee cultuur bevorderen, is mijn drijfveer.
-      </p>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Christian Bröringmeyer · Flexibel inzetbaar voor verschillende opdrachten (~36 uur per week)
-    </footer>
-  </main>
-  <script>
-    const projects = document.getElementById("projects");
-    const arrowLeft = document.getElementById("arrow-left");
-    const arrowRight = document.getElementById("arrow-right");
-
-    document.getElementById('year').textContent=new Date().getFullYear();
-
-    function scrollProjects(dir){
-      const scrollAmount=projects.clientWidth*0.8;
-      projects.scrollBy({left:dir*scrollAmount, behavior:"smooth"});
-    }
-
-    function updateArrows(){
-      const maxScroll = projects.scrollWidth - projects.clientWidth;
-      arrowLeft.classList.toggle("hidden", projects.scrollLeft <= 10);
-      arrowRight.classList.toggle("hidden", projects.scrollLeft >= maxScroll - 10);
-    }
-
-    projects.addEventListener("scroll", updateArrows);
-    window.addEventListener("load", updateArrows);
   </script>
 </body>
 </html>
